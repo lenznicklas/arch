@@ -1,0 +1,36 @@
+configuration {
+    font: "JetBrainsMono Nerd Font 13";
+    show-icons: true;
+    drun-display-format: "{icon} {name}";
+}
+
+window {
+    width: 500px;
+    border-radius: 12px;
+    background-color: #1e1e2e;
+}
+
+mainbox {
+    padding: 15px;
+}
+
+inputbar {
+    background-color: #313244;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+listview {
+    lines: 8;
+    spacing: 6px;
+}
+
+element {
+    padding: 6px;
+    border-radius: 6px;
+}
+
+element selected {
+    background-color: #89b4fa;
+    text-color: #1e1e2e;
+}

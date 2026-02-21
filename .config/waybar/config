@@ -1,0 +1,75 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+
+  "modules-left": [
+    "hyprland/workspaces",
+    "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "pulseaudio",
+    "network",
+    "cpu",
+    "memory",
+    "battery",
+    "tray"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "on-click": "activate",
+    "sort-by-number": true
+  },
+
+  "clock": {
+    "format": "  {:%H:%M  |  %d.%m.%Y}",
+    "tooltip-format": "<big>{:%A, %d %B %Y}</big>",
+    "on-click": "~/.config/waybar/scripts/media_popup.sh"
+  },
+
+  "cpu": {
+    "format": "  {usage}%",
+    "interval": 3
+  },
+
+  "memory": {
+    "format": "󰍛  {}%",
+    "interval": 3
+  },
+
+  "network": {
+    "format-wifi": "󰤨  {signalStrength}%",
+    "format-ethernet": "󰈀  {ipaddr}",
+    "format-disconnected": "󰤭  Offline",
+    "tooltip-format-wifi": "{essid} ({ipaddr})\n{frequency} MHz\n{signalStrength}%",
+    "tooltip-format-ethernet": "{ifname} ({ipaddr})"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}  {volume}%",
+    "format-muted": "󰖁  Muted",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "scroll-step": 5
+  },
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-charging": "󰂄  {capacity}%",
+    "format-plugged": "  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+      "warning": 30,
+      "critical": 15
+    }
+  },
+
+  "tray": {
+    "spacing": 10
+  }
+}

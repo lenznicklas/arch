@@ -1,0 +1,74 @@
+/* Force Nerd Font (exact name that exists on your system) */
+* {
+  font-family: "JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font", monospace;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+
+  /* Smooth animations */
+  transition: background-color 0.2s ease,
+              color 0.2s ease,
+              box-shadow 0.2s ease,
+              border-color 0.2s ease;
+}
+
+window#waybar {
+  background: rgba(20, 20, 20, 0.85);
+  color: #e0e0e0;
+}
+
+/* Workspaces */
+#workspaces button {
+  padding: 0 8px;
+  margin: 0 4px;
+  background: transparent;
+  color: #888;
+}
+
+#workspaces button.active {
+  color: #ffffff;
+  border-bottom: 2px solid #4c8bf5;
+}
+
+#workspaces button:hover {
+  background: rgba(255,255,255,0.10);
+  border-radius: 8px;
+}
+
+/* Pill boxes for modules */
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#tray {
+  padding: 0 12px;
+  margin: 4px 4px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+/* Hover effect */
+#clock:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#tray:hover {
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 0 6px rgba(76,139,245,0.20);
+}
+
+/* Color accents */
+#cpu { color: #81c784; }
+#memory { color: #64b5f6; }
+#network { color: #ffd54f; }
+#pulseaudio { color: #ce93d8; }
+
+/* State colors */
+#pulseaudio.muted { color: #e57373; }
+
+#battery.warning { color: #ffb74d; }
+#battery.critical { color: #ff5252; }
