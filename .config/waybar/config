@@ -28,7 +28,8 @@
   "clock": {
     "format": "  {:%H:%M  |  %d.%m.%Y}",
     "tooltip-format": "<big>{:%A, %d %B %Y}</big>",
-    "on-click": "~/.config/waybar/scripts/media_popup.sh"
+    "on-click": "eww open --toggle media",
+    "tooltip": false
   },
 
   "cpu": {

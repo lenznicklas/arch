@@ -49,7 +49,7 @@ window#waybar {
   border-radius: 10px;
 }
 
-/* Hover effect */
+/* Hover effect */ 
 #clock:hover,
 #battery:hover,
 #network:hover,
@@ -59,7 +59,7 @@ window#waybar {
 #tray:hover {
   background: rgba(255,255,255,0.10);
   box-shadow: 0 0 6px rgba(76,139,245,0.20);
-}
+} 
 
 /* Color accents */
 #cpu { color: #81c784; }
@@ -72,3 +72,10 @@ window#waybar {
 
 #battery.warning { color: #ffb74d; }
 #battery.critical { color: #ff5252; }
+
+tooltip {
+  background: rgba(30, 30, 30, 0.95);
+  border-radius: 20px;
+  padding: 8px;
+  border: 1px solid rgba(255,255,255,0.1);
+}
