@@ -1,0 +1,84 @@
+;; --- Media Popup (Wayland) ---
+
+(defpoll artist :interval "1s"
+  "playerctl metadata artist 2>/dev/null || echo ''")
+
+(defpoll title :interval "1s"
+  "playerctl metadata title 2>/dev/null || echo 'Kein Player'")
+
+(defpoll album :interval "2s"
+  "playerctl metadata album 2>/dev/null || echo ''")
+
+(defpoll status :interval "1s"
+  "playerctl status 2>/dev/null || echo 'Stopped'")
+
+(defpoll art :interval "5s"
+  "playerctl metadata mpris:artUrl 2>/dev/null || echo ''")
+
+
+(defwindow media
+  :monitor 0
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  ;; y = Abstand unter deiner Waybar (ggf. anpassen)
+  :geometry (geometry :x "0%" :y "18px" :width "460px" :height "160px" :anchor "top center")
+  (media_popup))
+
+
+(defwidget media_popup []
+  (box :class "pop"
+       :orientation "v"
+       :spacing 10
+
+    (box :class "row"
+         :orientation "h"
+         :spacing 12
+
+      ;; Cover
+      (box :class "cover-wrap"
+           :visible {art != ""}
+        (image :class "cover"
+               :path {art}
+               :image-width 64
+               :image-height 64))
+
+      ;; Meta
+      (box :class "meta"
+           :orientation "v"
+           :spacing 4
+        (label :class "title"  :limit-width 42 :text {title})
+        (label :class "artist" :limit-width 42 :text {artist})
+        (label :class "album"  :limit-width 42 :text {album})
+      )
+    )
+
+    ;; Controls
+    (box :class "controls"
+         :orientation "h"
+         :spacing 10
+
+      (button :class "btn"
+              :onclick "playerctl previous"
+              :tooltip "Previous"
+              "󰒮")
+
+(button :class "btn primary"
+        :visible {status == "Playing"}
+        :onclick "playerctl play-pause"
+        :tooltip "Pause"
+        "󰏤")
+
+(button :class "btn primary"
+        :visible {status != "Playing"}
+        :onclick "playerctl play-pause"
+        :tooltip "Play"
+        "󰐊")
+
+      (button :class "btn"
+              :onclick "playerctl next"
+              :tooltip "Next"
+              "󰒭")
+    )
+  )
+)
