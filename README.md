@@ -5,12 +5,12 @@
 Desktopenviroment with Hyprland
 
 Shortcuts:
-- SUPER+D -> opens rofi
+- SUPER+SPACE -> opens rofi
 - SUPER+number -> opens workspace number n
 - SUPER+SHIFT+number -> put window to workspace number n
 - SUPER+P -> lock pc
 - SUPER+Q -> kill active window
-- SUPER+ENTER -> open kitty (terminal)
+- SUPER+ENTER -> opens kitty (terminal)
 - DRUCK -> Screenshot
 - DRUCK-SHIFT -> Screenshot fullscreen
 - SUPER+H/L -> movefocus (L,R)
@@ -18,6 +18,7 @@ Shortcuts:
 - SUPER+SHIFT+H/L -> movewindow (L,R)
 - SUPER+SHIFT+J/K -> movewindow (U,D)
 - SUPER+S -> fullscreen
+- SUPER+F -> opens firefox
 
 - F1 -> mute
 - F2 -> -5% volume
@@ -59,7 +60,7 @@ Changed design
 
 ## Rofi
 
-Changed design
+Changed design to modern
 
 # TODO
 
