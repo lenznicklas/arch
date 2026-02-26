@@ -55,7 +55,7 @@ Changed Design
 
 Changed design
 
-## Fastfeth
+## Fastfetch
 
 Changed design
 
@@ -68,5 +68,4 @@ Changed design to modern
 ## Waybar
 
 - Add switch-off-button
-- Add music-playing icon to date/time section
 
