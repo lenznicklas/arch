@@ -37,6 +37,7 @@ Simple Lockscreen
 
 Shows:
 - workspaces
+- if media plays: shows icon
 - date/time (onclick: media player)
 - volume
 - wifi
