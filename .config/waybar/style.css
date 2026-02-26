@@ -36,7 +36,6 @@ window#waybar {
 }
 
 /* Pill boxes for modules */
-#clock,
 #battery,
 #cpu,
 #memory,
@@ -50,7 +49,6 @@ window#waybar {
 }
 
 /* Hover effect */ 
-#clock:hover,
 #battery:hover,
 #network:hover,
 #pulseaudio:hover,
@@ -66,6 +64,7 @@ window#waybar {
 #memory { color: #64b5f6; }
 #network { color: #ffd54f; }
 #pulseaudio { color: #ce93d8; }
+#custom-musicicon { color: #ce93d8; }
 
 /* State colors */
 #pulseaudio.muted { color: #e57373; }
@@ -80,4 +79,43 @@ tooltip {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
+@keyframes pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.55; }
+  100% { opacity: 1; }
+}
 
+#custom-musicicon.playing {
+  animation: pulse 1s infinite;
+}
+
+/* === Combined pill for music icon + clock === */
+.modules-center {
+  margin: 4px 4px;
+  padding: 0 12px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+.modules-center:hover {
+  background: rgba(255,255,255,0.10);
+  box-shadow: 0 0 6px rgba(76,139,245,0.20);
+}
+
+/* Die beiden Module selbst: keine eigene Box */
+#custom-musicicon,
+#clock {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Abstand + optional Trennlinie */
+#custom-musicicon { padding-right: 8px; }
+
+#clock {
+  padding-left: 10px;
+  border-left: 1px solid rgba(255,255,255,0.12);
+}

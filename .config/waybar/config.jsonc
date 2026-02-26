@@ -8,6 +8,7 @@
     "hyprland/window"
   ],
   "modules-center": [
+    "custom/musicicon",
     "clock"
   ],
   "modules-right": [
@@ -30,6 +31,14 @@
     "tooltip-format": "<big>{:%A, %d %B %Y}</big>",
     "on-click": "eww open --toggle media",
     "tooltip": false
+  },
+
+  "custom/musicicon": {
+    "exec": "~/.dotfiles/.config/waybar/scripts/music-icon.sh",
+    "interval": 1,
+    "return-type": "json",
+    "tooltip": false,
+    "on-click": "eww open --toggle media"
   },
 
   "cpu": {
