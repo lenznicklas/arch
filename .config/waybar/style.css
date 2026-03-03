@@ -1,41 +1,85 @@
-/* Force Nerd Font (exact name that exists on your system) */
+/* =========================
+   Waybar – Modern Glassy (JetBrains Nerd Font)
+   ========================= */
+
+@define-color bg         rgba(16, 16, 18, 0.78);
+@define-color bg2        rgba(255, 255, 255, 0.06);
+@define-color bg3        rgba(255, 255, 255, 0.10);
+@define-color border     rgba(255, 255, 255, 0.10);
+@define-color text       #e7e7ea;
+@define-color textDim    rgba(231, 231, 234, 0.65);
+@define-color accent     #4c8bf5;
+@define-color glow       rgba(76, 139, 245, 0.30);
+
 * {
   font-family: "JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font", monospace;
   font-size: 14px;
+
   border: none;
   border-radius: 0;
 
-  /* Smooth animations */
-  transition: background-color 0.2s ease,
-              color 0.2s ease,
-              box-shadow 0.2s ease,
-              border-color 0.2s ease;
+  /* smooth feel */
+  transition: background-color 160ms ease,
+              color 160ms ease,
+              box-shadow 180ms ease,
+              transform 180ms ease,
+              border-color 180ms ease;
 }
 
+/* Window */
 window#waybar {
-  background: rgba(20, 20, 20, 0.85);
-  color: #e0e0e0;
+  background: @bg;
+  color: @text;
+  border: 1px solid @border;
+  border-radius: 16px;
+  margin: 8px 10px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
 }
 
-/* Workspaces */
+/* Generic module spacing */
+#workspaces,
+#window,
+#clock,
+#tray,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#custom-firefox,
+#custom-kitty,
+#custom-files,
+#custom-music,
+#custom-settings {
+  margin: 4px 4px;
+}
+
+/* =========================
+   Workspaces – clean
+   ========================= */
 #workspaces button {
-  padding: 0 8px;
+  padding: 0 10px;
   margin: 0 4px;
   background: transparent;
-  color: #888;
+  color: @textDim;
+  border-radius: 10px;
 }
 
 #workspaces button.active {
-  color: #ffffff;
-  border-bottom: 2px solid #4c8bf5;
+  color: @text;
+  background: rgba(76,139,245,0.12);
+  box-shadow: inset 0 -2px 0 @accent;
 }
 
 #workspaces button:hover {
   background: rgba(255,255,255,0.10);
-  border-radius: 8px;
+  color: @text;
 }
 
-/* Pill boxes for modules */
+/* =========================
+   Pill modules (right side etc.)
+   ========================= */
+#clock,
 #battery,
 #cpu,
 #memory,
@@ -43,79 +87,121 @@ window#waybar {
 #pulseaudio,
 #tray {
   padding: 0 12px;
-  margin: 4px 4px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
+  background: @bg2;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px;
 }
 
-/* Hover effect */ 
+#clock:hover,
 #battery:hover,
 #network:hover,
 #pulseaudio:hover,
 #cpu:hover,
 #memory:hover,
 #tray:hover {
-  background: rgba(255,255,255,0.10);
-  box-shadow: 0 0 6px rgba(76,139,245,0.20);
-} 
+  background: @bg3;
+  border-color: rgba(255,255,255,0.14);
+  box-shadow: 0 0 0 3px rgba(76,139,245,0.10);
+}
 
-/* Color accents */
+/* Accents */
 #cpu { color: #81c784; }
 #memory { color: #64b5f6; }
 #network { color: #ffd54f; }
 #pulseaudio { color: #ce93d8; }
-#custom-musicicon { color: #ce93d8; }
-
-/* State colors */
 #pulseaudio.muted { color: #e57373; }
 
 #battery.warning { color: #ffb74d; }
 #battery.critical { color: #ff5252; }
 
-tooltip {
-  background: rgba(30, 30, 30, 0.95);
-  border-radius: 20px;
-  padding: 8px;
-  border: 1px solid rgba(255,255,255,0.1);
+/* Tray */
+#tray menu {
+  background: rgba(18,18,20,0.95);
+  color: @text;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
 }
 
-@keyframes pulse {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.55; }
-  100% { opacity: 1; }
+/* =========================
+   CENTER “DOCK” – looks like one pillbox
+   IDs must match your config:
+   custom/firefox, custom/kitty, custom/files, custom/music, custom/settings
+   ========================= */
+
+#custom-firefox,
+#custom-kitty,
+#custom-files,
+#custom-music,
+#custom-settings {
+  font-size: 20px;
+  padding: 6px 12px;
+
+  /* same background -> looks like one dock */
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  /* remove gaps between the “pieces” */
+  margin-left: 0px;
+  margin-right: 0px;
+
+  /* subtle shadow like macOS */
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
 }
 
-#custom-musicicon.playing {
-  animation: pulse 1s infinite;
+/* Round only the ends so it becomes one long pill */
+#custom-firefox {
+  border-radius: 16px 0 0 16px;
+  border-right: 0px;
+  padding-left: 14px;
 }
 
-/* === Combined pill for music icon + clock === */
-.modules-center {
-  margin: 4px 4px;
-  padding: 0 12px;
-  background: rgba(255,255,255,0.05);
-  border-radius: 10px;
+#custom-settings {
+  border-radius: 0 16px 16px 0;
+  border-left: 0px;
+  padding-right: 14px;
 }
 
-.modules-center:hover {
-  background: rgba(255,255,255,0.10);
-  box-shadow: 0 0 6px rgba(76,139,245,0.20);
-}
-
-/* Die beiden Module selbst: keine eigene Box */
-#custom-musicicon,
-#clock {
-  margin: 0;
-  padding: 0;
-  background: transparent;
+/* Middle pieces: square-ish to connect */
+#custom-kitty,
+#custom-files,
+#custom-music {
   border-radius: 0;
-  box-shadow: none;
+  border-left: 0px;
+  border-right: 0px;
 }
 
-/* Abstand + optional Trennlinie */
-#custom-musicicon { padding-right: 8px; }
+/* Optional: faint separators (very subtle) */
+#custom-kitty,
+#custom-files,
+#custom-music,
+#custom-settings {
+  box-shadow: inset 1px 0 0 rgba(255,255,255,0.06),
+              0 10px 22px rgba(0,0,0,0.22);
+}
 
-#clock {
-  padding-left: 10px;
-  border-left: 1px solid rgba(255,255,255,0.12);
+/* Hover: GTK-safe “dock pop” (no transform in GTK CSS) */
+#custom-firefox:hover,
+#custom-kitty:hover,
+#custom-files:hover,
+#custom-music:hover,
+#custom-settings:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.16);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.30),
+              0 0 18px rgba(76,139,245,0.30);
+}
+
+/* Active click feel */
+#custom-firefox:active,
+#custom-kitty:active,
+#custom-files:active,
+#custom-music:active,
+#custom-settings:active {
+  background: rgba(76,139,245,0.14);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.26),
+              0 0 14px rgba(76,139,245,0.22);
+}
+/* Keep center dock tighter */
+.modules-center {
+  padding: 0 6px;
 }

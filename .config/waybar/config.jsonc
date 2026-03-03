@@ -8,8 +8,10 @@
     "hyprland/window"
   ],
   "modules-center": [
-    "custom/musicicon",
-    "clock"
+    "custom/firefox",
+    "custom/kitty",
+    "custom/files",
+    "custom/music"
   ],
   "modules-right": [
     "pulseaudio",
@@ -24,21 +26,6 @@
     "format": "{name}",
     "on-click": "activate",
     "sort-by-number": true
-  },
-
-  "clock": {
-    "format": "  {:%H:%M  |  %d.%m.%Y}",
-    "tooltip-format": "<big>{:%A, %d %B %Y}</big>",
-    "on-click": "eww open --toggle media",
-    "tooltip": false
-  },
-
-  "custom/musicicon": {
-    "exec": "~/.dotfiles/.config/waybar/scripts/music-icon.sh",
-    "interval": 1,
-    "return-type": "json",
-    "tooltip": false,
-    "on-click": "eww open --toggle media"
   },
 
   "cpu": {
@@ -81,5 +68,29 @@
 
   "tray": {
     "spacing": 10
+  },
+
+  "custom/firefox": {
+    "format": "",
+    "on-click": "firefox",
+    "tooltip": false
+  },
+
+  "custom/kitty": {
+    "format": "",
+    "on-click": "kitty",
+    "tooltip": false
+  },
+
+  "custom/files": {
+    "format": "",
+    "on-click": "thunar",
+    "tooltip": false
+  },
+
+  "custom/music": {
+    "format": "",
+    "on-click": "spotify",
+    "tooltip": false
   }
 }
