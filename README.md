@@ -67,5 +67,10 @@ Changed design to modern
 
 ## Waybar
 
-- Add switch-off-button
+- Add switch-off-button (fullscreen)
+- Add button for brightness
+
+## Kitty
+
+- colored pillbox for current dir
 
