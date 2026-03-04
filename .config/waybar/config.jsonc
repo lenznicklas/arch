@@ -3,6 +3,11 @@
   "position": "top",
   "height": 34,
 
+  "margin-top": 8,
+  "margin-left": 20,
+  "margin-right": 20,
+  "margin-bottom": 0,
+
   "modules-left": [
     "hyprland/workspaces",
     "hyprland/window"
@@ -11,15 +16,19 @@
     "custom/firefox",
     "custom/kitty",
     "custom/files",
-    "custom/music"
+    "custom/music",
+    "custom/libreoffice",
+    "custom/texstudio",
+    "custom/steam",
+    "custom/vscode"
   ],
   "modules-right": [
     "pulseaudio",
+    "backlight",
     "network",
     "cpu",
     "memory",
-    "battery",
-    "tray"
+    "battery"
   ],
 
   "hyprland/workspaces": {
@@ -66,31 +75,56 @@
     }
   },
 
-  "tray": {
-    "spacing": 10
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "󰃟 {percent}%",
+    "tooltip": false,
+    "scroll-step": 5
   },
 
-  "custom/firefox": {
-    "format": "",
-    "on-click": "firefox",
-    "tooltip": false
-  },
 
-  "custom/kitty": {
-    "format": "",
-    "on-click": "kitty",
-    "tooltip": false
-  },
+"custom/firefox": {
+  "format": "",
+  "on-click": "firefox",
+  "tooltip": false
+},
+"custom/kitty": {
+  "format": "",
+  "on-click": "kitty",
+  "tooltip": false
+},
+"custom/files": {
+  "format": "",
+  "on-click": "dolphin",
+  "tooltip": false
+},
 
-  "custom/files": {
-    "format": "",
-    "on-click": "thunar",
-    "tooltip": false
-  },
+// NEW
+"custom/libreoffice": {
+  "format": "",                 // doc icon (works with Nerd Fonts)
+  "on-click": "libreoffice --quickstart || libreoffice",
+  "tooltip": false
+},
+"custom/texstudio": {
+  "format": "",                 // nf-dev-tex (U+E8BE)
+  "on-click": "texstudio",
+  "tooltip": false
+},
+"custom/steam": {
+  "format": "",                 // nf-md-steam (U+F04DE)
+  "on-click": "steam",
+  "tooltip": false
+},
+"custom/vscode": {
+  "format": "󰨞",                 // nf-dev-vscode (U+E711)
+  "on-click": "code",
+  "tooltip": false
+},
 
-  "custom/music": {
-    "format": "",
-    "on-click": "spotify",
-    "tooltip": false
-  }
+"custom/music": {
+  "format": "",
+  "on-click": "spotify",
+  "tooltip": false
+}
+
 }
