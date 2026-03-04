@@ -1,7 +1,7 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
+  "height": 30,
 
   "margin-top": 8,
   "margin-left": 20,
@@ -9,6 +9,7 @@
   "margin-bottom": 0,
 
   "modules-left": [
+    "clock",
     "hyprland/workspaces",
     "hyprland/window"
   ],
@@ -17,10 +18,10 @@
     "custom/kitty",
     "custom/files",
     "custom/music",
-    "custom/libreoffice",
     "custom/texstudio",
     "custom/steam",
-    "custom/vscode"
+    "custom/vscode",
+    "custom/libreoffice"
   ],
   "modules-right": [
     "pulseaudio",
@@ -30,6 +31,14 @@
     "memory",
     "battery"
   ],
+
+  "clock": {
+    "format": "󰥔 {:%H:%M}",
+
+    "tooltip": true,
+    "tooltip-format": "{:%A, %d.%m.%Y}",
+    "interval": 1
+  },
 
   "hyprland/workspaces": {
     "format": "{name}",

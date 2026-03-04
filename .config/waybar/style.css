@@ -1,86 +1,128 @@
 /* =========================
-   Waybar – Modern Glassy (JetBrains Nerd Font)
+   Waybar – Modern Glassy
    ========================= */
 
-@define-color bg         rgba(16, 16, 18, 0.78);
-@define-color bg2        rgba(255, 255, 255, 0.06);
-@define-color bg3        rgba(255, 255, 255, 0.10);
-@define-color border     rgba(255, 255, 255, 0.10);
+/* ---------- COLORS ---------- */
+
+@define-color bg         rgba(16,16,18,0.78);
+@define-color bg2        rgba(255,255,255,0.06);
+@define-color bg3        rgba(255,255,255,0.10);
+@define-color border     rgba(255,255,255,0.10);
+
 @define-color text       #e7e7ea;
-@define-color textDim    rgba(231, 231, 234, 0.65);
+@define-color textDim    rgba(231,231,234,0.65);
 @define-color accent     #4c8bf5;
-@define-color glow       rgba(76, 139, 245, 0.30);
+
+
+/* ---------- GLOBAL ---------- */
 
 * {
-  font-family: "JetBrainsMono Nerd Font Mono", "JetBrainsMono Nerd Font", monospace;
+  font-family: "JetBrainsMono Nerd Font Mono","JetBrainsMono Nerd Font",monospace;
   font-size: 14px;
 
   border: none;
   border-radius: 0;
+  min-height: 0;
 
-  /* smooth feel */
-  transition: background-color 160ms ease,
-              color 160ms ease,
-              box-shadow 180ms ease,
-              transform 180ms ease,
-              border-color 180ms ease;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
 }
 
-/* Window */
-window#waybar {
-  background: @bg;
-  color: @text;
-  border: 1px solid @border;
-  border-radius: 16px;
-  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-}
-
-/* Generic module spacing */
-#workspaces,
-#window,
-#clock,
-#battery,
-#cpu,
-#memory,
-#network,
-#pulseaudio,
-#backlight,
-#custom-firefox,
-#custom-kitty,
-#custom-files,
-#custom-music,
-#custom-vscode,
-#custom-texstudio,
-#custom-steam,
-#custom-libreoffice {
-  margin: 4px 4px;
-}
 
 /* =========================
-   Workspaces – clean
+   WAYBAR WINDOW
    ========================= */
+
+window#waybar {
+
+  background: @bg;
+  color: @text;
+
+  border: 1px solid @border;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+
+  /* Höhe der Bar */
+  min-height: 40px;
+}
+
+
+/* =========================
+   EDGE SPACING
+   ========================= */
+
+.modules-left  { padding-left: 2px; }
+.modules-right { padding-right: 2px; }
+
+/* Abstand oben/unten zur Bar */
+.modules-left,
+.modules-center,
+.modules-right {
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+
+/* =========================
+   MODULE SPACING
+   ========================= */
+
+.modules-left > widget,
+.modules-center > widget,
+.modules-right > widget {
+
+  margin: 6px;
+}
+
+/* fallback container */
+
+.modules-left > box > widget,
+.modules-center > box > widget,
+.modules-right > box > widget {
+
+  margin: 6px;
+}
+
+
+/* =========================
+   WORKSPACES
+   ========================= */
+
 #workspaces button {
-  padding: 0 10px;
+
+  padding: 2px 12px;
   margin: 0 4px;
+
   background: transparent;
   color: @textDim;
+
   border-radius: 10px;
 }
 
 #workspaces button.active {
+
   color: @text;
+
   background: rgba(76,139,245,0.12);
   box-shadow: inset 0 -2px 0 @accent;
 }
 
 #workspaces button:hover {
+
   background: rgba(255,255,255,0.10);
   color: @text;
 }
 
+
 /* =========================
-   Pill modules (right side etc.)
+   RIGHT MODULES
    ========================= */
+
 #clock,
 #battery,
 #cpu,
@@ -88,10 +130,14 @@ window#waybar {
 #network,
 #pulseaudio,
 #backlight {
-  padding: 0 12px;
+
+  padding: 2px 12px;
+  margin: 0px 2px;
+
   background: @bg2;
+
   border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 12px;
+  border-radius: 20px;
 }
 
 #clock:hover,
@@ -101,27 +147,35 @@ window#waybar {
 #cpu:hover,
 #memory:hover,
 #backlight:hover {
+
   background: @bg3;
+
   border-color: rgba(255,255,255,0.14);
-  box-shadow: 0 0 0 3px rgba(76,139,245,0.10);
+
+  box-shadow:
+    0 0 0 3px rgba(76,139,245,0.10);
 }
 
-
-#battery.warning { color: #ffb74d; }
+#battery.warning  { color: #ffb74d; }
 #battery.critical { color: #ff5252; }
 
-/* Tray */
+
+/* =========================
+   TRAY
+   ========================= */
+
 #tray menu {
+
   background: rgba(18,18,20,0.95);
   color: @text;
+
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: 12px;
 }
 
+
 /* =========================
-   CENTER “DOCK” – looks like one pillbox
-   IDs must match your config:
-   custom/firefox, custom/kitty, custom/files, custom/music, custom/settings
+   CENTER APP DOCK
    ========================= */
 
 #custom-firefox,
@@ -132,89 +186,78 @@ window#waybar {
 #custom-vscode,
 #custom-texstudio,
 #custom-steam,
-#custom-libreoffice{
-  font-size: 20px;
-  padding: 6px 12px;
+#custom-libreoffice {
 
-  /* same background -> looks like one dock */
+  font-size: 20px;
+
+  padding: 2px 14px;
+  margin: 0px 2px;
+
   background: rgba(255,255,255,0.07);
+
   border: 1px solid rgba(255,255,255,0.10);
 
-  /* remove gaps between the “pieces” */
-  margin-left: 0px;
-  margin-right: 0px;
+  border-radius: 16px;
 
-  /* subtle shadow like macOS */
   box-shadow: 0 10px 22px rgba(0,0,0,0.22);
 }
 
-/* Round only the ends so it becomes one long pill */
-#custom-firefox {
-  border-radius: 16px 0 0 16px;
-  border-right: 0px;
-  padding-left: 14px;
-}
 
-#custom-vscode {
-  border-radius: 0 16px 16px 0;
-  border-left: 0px;
-  padding-right: 14px;
-}
+/* Hover */
 
-/* Middle pieces: square-ish to connect */
-#custom-kitty,
-#custom-files,
-#custom-music,
-#custom-texstudio,
-#custom-steam,
-#custom-libreoffice {
-  border-radius: 0;
-  border-left: 0px;
-  border-right: 0px;
-}
-
-/* Optional: faint separators (very subtle) */
-#custom-kitty,
-#custom-files,
-#custom-music,
-#custom-settings {
-  box-shadow: inset 1px 0 0 rgba(255,255,255,0.06),
-              0 10px 22px rgba(0,0,0,0.22);
-}
-
-/* Hover: GTK-safe “dock pop” (no transform in GTK CSS) */
 #custom-firefox:hover,
 #custom-kitty:hover,
 #custom-files:hover,
 #custom-music:hover,
-#custom-settings:hover {
+#custom-settings:hover,
+#custom-vscode:hover,
+#custom-texstudio:hover,
+#custom-steam:hover,
+#custom-libreoffice:hover {
+
   background: rgba(255,255,255,0.12);
+
   border-color: rgba(255,255,255,0.16);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.30),
-              0 0 18px rgba(76,139,245,0.30);
+
+  box-shadow:
+    0 14px 28px rgba(0,0,0,0.30),
+    0 0 18px rgba(76,139,245,0.30);
 }
 
-/* Active click feel */
+
+/* Active */
+
 #custom-firefox:active,
 #custom-kitty:active,
 #custom-files:active,
 #custom-music:active,
-#custom-settings:active {
+#custom-settings:active,
+#custom-vscode:active,
+#custom-texstudio:active,
+#custom-steam:active,
+#custom-libreoffice:active {
+
   background: rgba(76,139,245,0.14);
-  box-shadow: 0 10px 22px rgba(0,0,0,0.26),
-              0 0 14px rgba(76,139,245,0.22);
-}
-/* Keep center dock tighter */
-.modules-center {
-  padding: 0 6px;
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.26),
+    0 0 14px rgba(76,139,245,0.22);
 }
 
+
+/* =========================
+   TOOLTIP
+   ========================= */
+
 tooltip {
+
   background: rgba(20,20,24,0.95);
+
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: 14px;
 
-  color: #e7e7ea;
+  color: @text;
+
   padding: 8px 12px;
 
   font-family: "JetBrainsMono Nerd Font";

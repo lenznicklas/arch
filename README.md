@@ -5,7 +5,6 @@
 Desktopenviroment with Hyprland
 
 Shortcuts:
-- SUPER+SPACE -> opens rofi
 - SUPER+number -> opens workspace number n
 - SUPER+SHIFT+number -> put window to workspace number n
 - SUPER+P -> lock pc
@@ -50,6 +49,7 @@ Shows:
 Changed Design
 - transparent
 - glowing border when active
+- coloured pillbox for prompt
 
 ## Neovim
 
@@ -59,18 +59,10 @@ Changed design
 
 Changed design
 
-## Rofi
-
-Changed design to modern
-
 # TODO
 
 ## Waybar
 
 - Add switch-off-button (fullscreen)
 - Add button for brightness
-
-## Kitty
-
-- colored pillbox for current dir
-
+- second waybar for bottom with programs opens and closes on SUPER+SPACE
