@@ -1,0 +1,275 @@
+/* =========================
+   Waybar – Modern Glassy
+   ========================= */
+
+/* ---------- COLORS ---------- */
+
+@define-color bg         rgba(16,16,18,0.78);
+@define-color bg2        rgba(255,255,255,0.06);
+@define-color bg3        rgba(255,255,255,0.10);
+@define-color border     rgba(255,255,255,0.10);
+
+@define-color text       #e7e7ea;
+@define-color textDim    rgba(231,231,234,0.65);
+@define-color accent     #4c8bf5;
+
+
+/* ---------- GLOBAL ---------- */
+
+* {
+  font-family: "JetBrainsMono Nerd Font Mono","JetBrainsMono Nerd Font",monospace;
+  font-size: 14px;
+
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease;
+}
+
+
+/* =========================
+   WAYBAR WINDOW
+   ========================= */
+
+window#waybar {
+
+  background: @bg;
+  color: @text;
+
+  border: 1px solid @border;
+  border-radius: 20px;
+
+  box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+
+  /* Höhe der Bar */
+  min-height: 40px;
+}
+
+
+/* =========================
+   EDGE SPACING
+   ========================= */
+
+.modules-left  { padding-left: 2px; }
+.modules-right { padding-right: 2px; }
+
+/* Abstand oben/unten zur Bar */
+.modules-left,
+.modules-center,
+.modules-right {
+
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+
+/* =========================
+   MODULE SPACING
+   ========================= */
+
+.modules-left > widget,
+.modules-center > widget,
+.modules-right > widget {
+
+  margin: 6px;
+}
+
+/* fallback container */
+
+.modules-left > box > widget,
+.modules-center > box > widget,
+.modules-right > box > widget {
+
+  margin: 6px;
+}
+
+
+/* =========================
+   WORKSPACES
+   ========================= */
+
+#workspaces button {
+
+  padding: 2px 12px;
+  margin: 0 4px;
+
+  background: transparent;
+  color: @textDim;
+
+  border-radius: 10px;
+}
+
+#workspaces button.active {
+
+  color: @text;
+
+  background: rgba(76,139,245,0.12);
+  box-shadow: inset 0 -2px 0 @accent;
+}
+
+#workspaces button:hover {
+
+  background: rgba(255,255,255,0.10);
+  color: @text;
+}
+
+
+/* =========================
+   RIGHT MODULES
+   ========================= */
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#backlight {
+
+  padding: 2px 12px;
+  margin: 0px 2px;
+
+  background: @bg2;
+
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+}
+
+#clock:hover,
+#battery:hover,
+#network:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#backlight:hover {
+
+  background: @bg3;
+
+  border-color: rgba(255,255,255,0.14);
+
+  box-shadow:
+    0 0 0 3px rgba(76,139,245,0.10);
+}
+
+#battery.warning  { color: #ffb74d; }
+#battery.critical { color: #ff5252; }
+
+
+/* =========================
+   TRAY
+   ========================= */
+
+#tray menu {
+
+  background: rgba(18,18,20,0.95);
+  color: @text;
+
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+}
+
+
+/* =========================
+   CENTER APP DOCK
+   ========================= */
+
+#custom-firefox,
+#custom-kitty,
+#custom-files,
+#custom-music,
+#custom-settings,
+#custom-vscode,
+#custom-texstudio,
+#custom-steam,
+#custom-libreoffice {
+
+  font-size: 20px;
+
+  padding: 2px 14px;
+  margin: 0px 2px;
+
+  background: rgba(255,255,255,0.07);
+
+  border: 1px solid rgba(255,255,255,0.10);
+
+  border-radius: 16px;
+
+  box-shadow: 0 10px 22px rgba(0,0,0,0.22);
+}
+
+
+/* Hover */
+
+#custom-firefox:hover,
+#custom-kitty:hover,
+#custom-files:hover,
+#custom-music:hover,
+#custom-settings:hover,
+#custom-vscode:hover,
+#custom-texstudio:hover,
+#custom-steam:hover,
+#custom-libreoffice:hover {
+
+  background: rgba(255,255,255,0.12);
+
+  border-color: rgba(255,255,255,0.16);
+
+  box-shadow:
+    0 14px 28px rgba(0,0,0,0.30),
+    0 0 18px rgba(76,139,245,0.30);
+}
+
+
+/* Active */
+
+#custom-firefox:active,
+#custom-kitty:active,
+#custom-files:active,
+#custom-music:active,
+#custom-settings:active,
+#custom-vscode:active,
+#custom-texstudio:active,
+#custom-steam:active,
+#custom-libreoffice:active {
+
+  background: rgba(76,139,245,0.14);
+
+  box-shadow:
+    0 10px 22px rgba(0,0,0,0.26),
+    0 0 14px rgba(76,139,245,0.22);
+}
+
+
+/* =========================
+   TOOLTIP
+   ========================= */
+
+tooltip {
+
+  background: rgba(20,20,24,0.95);
+
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+
+  color: @text;
+
+  padding: 8px 12px;
+
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 13px;
+}
+
+
+
+/*
+ * ----------------------------
+ * BOTTOM
+ * ----------------------------
+ */
+
+

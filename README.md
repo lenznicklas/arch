@@ -64,5 +64,5 @@ Changed design
 ## Waybar
 
 - Add switch-off-button (fullscreen)
-- Add button for brightness
 - second waybar for bottom with programs opens and closes on SUPER+SPACE
+- gpt rewrite dock.css + topbar.css (local not global styles)

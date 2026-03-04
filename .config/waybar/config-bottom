@@ -1,0 +1,93 @@
+{
+  "name": "bottom",
+  "layer": "top",
+  "position": "bottom",
+  "height": 64,
+  "exclusive": true,
+
+  "modules-left": [],
+  "modules-center": [
+    "custom/dock-firefox",
+    "custom/dock-kitty",
+    "custom/dock-dolphin",
+    "custom/dock-spotify",
+    "custom/dock-steam",
+    "custom/dock-code",
+    "custom/dock-libreoffice",
+    "custom/dock-inkscape",
+    "custom/dock-obsidian"
+  ],
+  "modules-right": [],
+
+  "custom/dock-firefox": {
+    "format": "󰈹",
+    "tooltip": "Firefox",
+    "on-click": "hyprctl dispatch exec firefox",
+    "on-click-right": "hyprctl dispatch focuswindow class:firefox",
+    "on-click-middle": "pkill firefox"
+  },
+
+  "custom/dock-kitty": {
+    "format": "󰆍",
+    "tooltip": "Kitty",
+    "on-click": "hyprctl dispatch exec kitty",
+    "on-click-right": "hyprctl dispatch focuswindow class:kitty",
+    "on-click-middle": "pkill kitty"
+  },
+
+  "custom/dock-dolphin": {
+    "format": "󰉋",
+    "tooltip": "Dolphin",
+    "on-click": "hyprctl dispatch exec dolphin",
+    "on-click-right": "hyprctl dispatch focuswindow class:dolphin",
+    "on-click-middle": "pkill dolphin"
+  },
+
+  "custom/dock-spotify": {
+    "format": "󰓇",
+    "tooltip": "Spotify",
+    "on-click": "hyprctl dispatch exec spotify",
+    "on-click-right": "hyprctl dispatch focuswindow class:spotify",
+    "on-click-middle": "pkill spotify"
+  },
+
+  "custom/dock-steam": {
+    "format": "󰓓",
+    "tooltip": "Steam",
+    "on-click": "hyprctl dispatch exec steam",
+    "on-click-right": "hyprctl dispatch focuswindow class:steam",
+    "on-click-middle": "pkill steam"
+  },
+
+  "custom/dock-code": {
+    "format": "󰨞",
+    "tooltip": "VS Code",
+    "on-click": "hyprctl dispatch exec code",
+    "on-click-right": "hyprctl dispatch focuswindow class:code",
+    "on-click-middle": "pkill code"
+  },
+
+  "custom/dock-libreoffice": {
+    "format": "󰈬",
+    "tooltip": "LibreOffice",
+    "on-click": "hyprctl dispatch exec libreoffice",
+    "on-click-right": "hyprctl dispatch focuswindow class:libreoffice",
+    "on-click-middle": "pkill soffice.bin"
+  },
+
+  "custom/dock-inkscape": {
+    "format": "󰕙",
+    "tooltip": "Inkscape",
+    "on-click": "hyprctl dispatch exec inkscape",
+    "on-click-right": "hyprctl dispatch focuswindow class:inkscape",
+    "on-click-middle": "pkill inkscape"
+  },
+
+  "custom/dock-obsidian": {
+    "format": "󰠮",
+    "tooltip": "Obsidian",
+    "on-click": "hyprctl dispatch exec obsidian",
+    "on-click-right": "hyprctl dispatch focuswindow class:obsidian",
+    "on-click-middle": "pkill obsidian"
+  }
+}
