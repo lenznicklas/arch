@@ -5,6 +5,7 @@
 Desktopenviroment with Hyprland
 
 Shortcuts:
+- SUPER+SPACE -> toggles dock
 - SUPER+number -> opens workspace number n
 - SUPER+SHIFT+number -> put window to workspace number n
 - SUPER+P -> lock pc
@@ -66,3 +67,8 @@ Changed design
 - Add switch-off-button (fullscreen)
 - second waybar for bottom with programs opens and closes on SUPER+SPACE
 - gpt rewrite dock.css + topbar.css (local not global styles)
+- rm second waybar
+
+## Desktop
+
+- add widgets

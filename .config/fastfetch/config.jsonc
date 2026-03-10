@@ -11,7 +11,7 @@
   "modules": [
     {
       "type": "title",
-      "format": "{user}@{host}"
+      "format": "lenz@T490s"
     },
 
     "separator",
